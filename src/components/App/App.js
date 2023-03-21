@@ -8,7 +8,7 @@ export class App extends Component {
 
   render() {
     console.log(this.state);
-    const { contacts, name } = this.state;
+    const { name } = this.state;
     return (
       <div>
         <section title="Phonebook">
