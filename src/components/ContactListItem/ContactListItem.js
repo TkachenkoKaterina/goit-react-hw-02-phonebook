@@ -1,11 +1,14 @@
-// import React from 'react';
+import React from 'react';
 
-// function ContactListItem(props) {
-//   return (
-//     <li>
-//       {props.contact.name}: {props.contact.number}
-//     </li>
-//   );
-// }
+const ContactListItem = ({ contact, onDeleteContact }) => {
+  return (
+    <li>
+      {contact.name}: {contact.number}
+      <button type="button" onClick={() => onDeleteContact(contact.id)}>
+        Delete
+      </button>
+    </li>
+  );
+};
 
-// export default ContactListItem;
+export default ContactListItem;

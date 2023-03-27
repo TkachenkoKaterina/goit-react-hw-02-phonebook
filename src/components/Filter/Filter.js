@@ -1,12 +1,12 @@
-// import React from 'react';
+import React from 'react';
 
-// function Filter(props) {
-//   return (
-//     <label>
-//       Filter by name
-//       <input type="text" value={props.filter} onChange={props.onFilterChange} />
-//     </label>
-//   );
-// }
+function Filter({ filter, onFilterChange }) {
+  return (
+    <label>
+      Filter by name
+      <input type="text" value={filter} onChange={onFilterChange} />
+    </label>
+  );
+}
 
-// export default Filter;
+export default Filter;
