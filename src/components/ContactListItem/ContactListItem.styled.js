@@ -6,6 +6,9 @@ export const ListItem = styled.li`
   justify-content: space-around;
   cursor: pointer;
   align-items: center;
+  // svg {
+  //   color: ${props => props.theme.colors.accent};
+  // }
 `;
 
 export const Button = styled.button`
@@ -16,4 +19,7 @@ export const Button = styled.button`
   border: none;
   background-color: ${props => props.theme.colors.input};
   cursor: pointer;
+  svg {
+    color: ${props => props.theme.colors.accent};
+  }
 `;
