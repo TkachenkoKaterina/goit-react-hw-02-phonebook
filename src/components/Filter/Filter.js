@@ -1,11 +1,12 @@
 import React from 'react';
+import { Label, Input } from './Filter.styled';
 
 function Filter({ filter, onFilterChange }) {
   return (
-    <label>
+    <Label>
       Filter by name
-      <input type="text" value={filter} onChange={onFilterChange} />
-    </label>
+      <Input type="text" value={filter} onChange={onFilterChange} />
+    </Label>
   );
 }
 
