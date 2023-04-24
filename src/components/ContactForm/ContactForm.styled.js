@@ -1,12 +1,13 @@
 import styled from 'styled-components';
+import { Form as FormikForm, Field as Input } from 'formik';
 
-export const Form = styled.form`
+export const Form = styled(FormikForm)`
   display: inline-block;
   padding: 0 15px;
   background-color: ${props => props.theme.colors.accent};
 `;
 
-export const Input = styled.input`
+export const Field = styled(Input)`
   margin: 15px 15px;
   padding: 5px;
   border: none;
@@ -25,3 +26,8 @@ export const Button = styled.button`
   background-color: ${props => props.theme.colors.input};
   cursor: pointer;
 `;
+
+// export const ErrorMessage = styled(FormikErrorMessage)`
+//   font-size: 14px;
+//   color: ${p => p.theme.colors.error};
+// `;
