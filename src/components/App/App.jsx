@@ -22,9 +22,21 @@ export class App extends Component {
   };
 
   handleSubmit = contact => {
-    this.setState(prevState => ({
-      contacts: [{ id: nanoid(), ...contact }, ...prevState.contacts],
-    }));
+    const { name } = contact;
+    const { contacts } = this.state;
+
+    const isDuplicate = contacts.some(
+      existingContact =>
+        existingContact.name.toLowerCase() === name.toLowerCase()
+    );
+
+    if (isDuplicate) {
+      alert(`${name} is already in contacts!`);
+    } else {
+      this.setState(prevState => ({
+        contacts: [{ id: nanoid(), ...contact }, ...prevState.contacts],
+      }));
+    }
   };
 
   handleDeleteContact = id => {
@@ -36,15 +48,18 @@ export class App extends Component {
   render() {
     const { filter, contacts } = this.state;
 
+    const filteredContacts = contacts.filter(contact =>
+      contact.name.toLowerCase().includes(filter.toLowerCase())
+    );
+
     return (
       <div className={css.container}>
         <h1 className={css.titleFirst}>Phonebook</h1>
-        <ContactForm onSubmit={this.handleSubmit} contacts={contacts} />
+        <ContactForm onSubmit={this.handleSubmit} />
         <h2 className={css.titleFSecond}>Contacts</h2>
         <Filter value={filter} onChange={this.handleFilter} />
         <ContactList
-          contacts={contacts}
-          filter={filter}
+          contacts={filteredContacts}
           onDeleteContact={this.handleDeleteContact}
         />
       </div>

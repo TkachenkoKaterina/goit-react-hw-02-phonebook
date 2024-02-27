@@ -15,18 +15,9 @@ class ContactForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const { name, number } = this.state;
-    const { contacts } = this.props;
 
-    const isDuplicate = contacts.some(
-      contact => contact.name.toLowerCase() === name.toLowerCase()
-    );
-
-    if (isDuplicate) {
-      alert(`${name} is already in contacts!`);
-    } else {
-      this.props.onSubmit({ name, number });
-      this.setState({ name: '', number: '' });
-    }
+    this.props.onSubmit({ name, number });
+    this.setState({ name: '', number: '' });
   };
 
   render() {
@@ -70,7 +61,6 @@ class ContactForm extends Component {
 
 ContactForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-  contacts: PropTypes.array.isRequired,
 };
 
 export default ContactForm;
